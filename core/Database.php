@@ -2,10 +2,10 @@
 
 class Database
 {
-    private $host = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $database = "kanban_david";
+    private $host = DB_HOST;
+    private $username = DB_USER;
+    private $password = DB_PASS;
+    private $database = DB_NAME;
 
     private $conn;
 
