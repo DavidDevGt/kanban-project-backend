@@ -58,7 +58,7 @@ class Database
         $result = $this->dbQuery($sql);
         return $result->fetch_assoc();
     }
-    
+
     // Función para obtener múltiples resultados en un array asociativo
     public function dbFetchMultipleAssoc($sql)
     {
@@ -71,6 +71,27 @@ class Database
 
         return $data;
     }
+
+    // Función para obtener un solo resultado en un array asociativo con consulta preparada
+    public function dbFetchAssocPreparada($sql, $params = array())
+    {
+        $result = $this->dbQueryPreparada($sql, $params);
+        return $result->fetch_assoc();
+    }
+
+    // Función para obtener múltiples resultados en un array asociativo con consulta preparada
+    public function dbFetchMultipleAssocPreparada($sql, $params = array())
+    {
+        $result = $this->dbQueryPreparada($sql, $params);
+        $data = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        return $data;
+    }
+
 
     // Función para escapar datos
     public function escapeData($data)
